@@ -5,8 +5,10 @@ in-app browser, then bulk-download your own posts, the creators
 you're subscribed to, individual paid DMs, or your whole vault to
 a clean, per-creator folder layout on disk.
 
-Everything runs locally — nothing is uploaded, no telemetry, no
-account credentials ever leave your machine.
+Everything runs locally on your PC — your OnlyFans password and
+downloaded media stay on your machine. On first launch OFDL asks
+you to acknowledge **anonymous usage statistics** (see
+[Privacy](#privacy--anonymous-usage-statistics) below).
 
 ---
 
@@ -229,6 +231,34 @@ created next to it on first run.
 
 ---
 
+## Privacy & anonymous usage statistics
+
+On first launch, OFDL shows a notice about **anonymous usage
+statistics**. If you continue, the app may send non-identifying
+signals to the project operator to help fix bugs and prioritize
+features. Examples include:
+
+- App opened / signed out
+- Backup finished (counts only — e.g. photos, videos, size — **not**
+  your files)
+- Pro license activated (anonymous machine ID + basic hardware info:
+  CPU, GPU, RAM)
+- Unexpected crashes (error message and stack trace)
+- Support messages you submit in **Help → Support** (includes the
+  email address you provide so we can reply)
+
+**What is never sent:** your OnlyFans password, private messages,
+or your full backup library.
+
+Each report is linked to an **anonymous machine identifier**, not
+your name or OF username.
+
+For privacy, legal, or support questions, contact:
+
+**moneytalks2@rambler.ru**
+
+---
+
 ## Disclaimer
 
 OFDL is for **personal archival** of content you have legal access
@@ -242,6 +272,8 @@ content you download, store, or share is done at your own risk
 and under your own legal accountability — including compliance
 with applicable copyright law, platform terms of service, and the
 laws of your local jurisdiction.
+
+**Contact (legal & support):** moneytalks2@rambler.ru
 
 ---
 
