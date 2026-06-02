@@ -16,6 +16,12 @@ you to acknowledge **anonymous usage statistics** (see
 
 ![OFDL main window](https://i.postimg.cc/rmPSs9T1/Screenshot-2026-05-25-205111.png)
 
+<!--
+Drop the second screenshot URL on the line below and remove this
+comment block once it's in place.
+-->
+
+![OFDL second screenshot — pending URL]()
 
 ---
 
