@@ -55,7 +55,7 @@ view it in the browser, OFDL can't download it either.
 | Tab               | What it backs up                                                                                  |
 |-------------------|----------------------------------------------------------------------------------------------------|
 | **Account**       | Your own account: profile pic, banner, vault, stories, your posts, your DMs.                       |
-| **Backup**        | Same as Account, but with toggles for what to include (photos, videos, messages, vault, stories).  |
+| **Backup**        | Same as Account, but with quick category buttons (posts, vault, stories, sent, everything).          |
 | **Subscriptions** | Bulk-download every subscribed creator. Tick the ones you want and OFDL walks each profile.        |
 | **PPV**           | Paste a single paid-DM permalink to back up just that one message (incl. DRM video decryption).    |
 | **Gallery**       | Browse already-downloaded photos and videos right inside the app — no need to dig through folders. |
@@ -85,9 +85,30 @@ backup/
       <media_id>.jpg
       PPV_<message_id>.mp4    # PPV-decrypted videos
       Paid_content.json       # purchase history catalogue
-    Stories/                  # your-own-account only
-    Vault/                    # your-own-account only
+    Stories/                  # 24h story ring
+    Highlights/               # saved highlight reels (photos + short videos)
+    Archived/                 # archived posts (when enabled in Settings)
+    Vault/                    # your own vault (Account tab)
+    manifest.json             # at backup root — resume / dedup index
 ```
+
+### Settings → What to download
+
+These toggles apply to **Subscriptions** bulk backup and per-creator **Backup**
+runs (not the single-purpose buttons on the Backup tab, which force their
+own category):
+
+| Toggle | Effect |
+|--------|--------|
+| Profile pic + banner + metadata | `Profile Pic/`, `Banner/`, `Metadata/` |
+| Photos / Videos | Post + archived media in `Photos/` and `Videos/` |
+| Stories | `Stories/` |
+| **Highlights** | `Highlights/` — reel slides; uses its own toggle (not blocked if Photos/Videos are off) |
+| Archived posts | `Archived/` |
+| DM (message) media | Everything in `Messages/` for that chat |
+
+**Pro → media post-processing** (license required): 3×3 video contact sheet,
+crop bottom 6% (OF watermark), optional custom text watermark.
 
 ---
 
@@ -224,6 +245,7 @@ created next to it on first run.
 | `mp4decrypt` not found                                   | You haven't downloaded Bento4 yet, or you pointed at the SDK root instead of `bin/mp4decrypt.exe`.                                           |
 | Long PPV video fails with "string too long"              | Update — newer builds stream large segments via curl. Re-download `OFDL.exe`.                                                                |
 | Sub backups go very slowly on huge accounts              | Normal — OFDL throttles requests to stay within OF's rate limits. Let it run; it'll resume on crash.                                         |
+| Highlights show a title but nothing downloads            | Enable **Highlights** in Settings. Files go to `<creator>/Highlights/`. Re-run after updating OFDL if an older build skipped reels.          |
 | Help tab shows nothing                                   | First time the layout engine warms up. Click another tab and come back.                                                                      |
 | "Saved Chrome path doesn't exist"                        | You moved or uninstalled the Chrome you previously pointed at. Open Settings → Browser → **Clear** and let OFDL auto-detect, or pick a new path. |
 | Files keep landing in `backup/` next to the EXE          | You picked a new folder via **Settings → Save folder → Browse…** but it didn't stick? Re-pick it once — the choice now auto-saves the moment you hit OK. The "Active save folder" line below the entry should immediately update to the new absolute path. |
